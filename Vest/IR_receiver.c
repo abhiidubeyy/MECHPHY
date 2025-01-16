@@ -35,7 +35,7 @@ int main()
 	*GA_AFRL |= (0x01<<20);
 	*TIM2CCMR |= (0x01);
 	*TIM2CCER |= (0x03);
-	*TIM2CCER &= ~(0x08);
+	*TIM2CCER |= (0x08);
 	*TIM2_ARR = (0x9C3F);
 	*TIM2_PSC = (0x00);
 	*TIM2DIER |= (0x02);
