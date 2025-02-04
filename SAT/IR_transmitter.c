@@ -128,6 +128,7 @@ int main(void)
 		send_byte();
 		while(l_flag == 0);
 		send_inverse();
+		*TIM17CR1 &= ~((1<<7)|(1<<0));
 	}
 }
 
