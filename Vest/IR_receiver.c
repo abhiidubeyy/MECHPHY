@@ -51,7 +51,7 @@ int main()
 		}
 		else
 		{
-			time = (0xffff-previous_edge)+current_edge;
+			time = (0xEA5F-previous_edge)+current_edge;
 		}
 		if(header==0)
 		{
@@ -59,11 +59,13 @@ int main()
 			{
 				header = 1;
 				ind = 0;
+				continue;
 			}
 			else
 			{
 				header = 0;
 				ind = 0;
+				continue;
 			}
 		}
 		else
@@ -72,7 +74,7 @@ int main()
 			{
 				a[ind]=0;
 			}
-			else if(time >= 0X20D0 && time <=0x2580)
+			else if(time >= 0X20D0 && time <=0x28A0)
 			{
 				a[ind]=1;
 			}
