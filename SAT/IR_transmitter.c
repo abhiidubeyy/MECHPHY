@@ -125,9 +125,9 @@ int main(void)
 		*TIM17CR1 |= (1<<7)|(1<<0);
 		initialization();
 		while(l_flag == 0);
-		send_byte(a);
+		send_byte();
 		while(l_flag == 0);
-		send_inverse(a);
+		send_inverse();
 	}
 }
 
@@ -147,18 +147,18 @@ int initialization()
 	return 0;
 }
 
-int send_byte(int x[16])
+int send_byte()
 {
 	for(int i=0;i<16;i++)
 	{
-		if(x[i]==1)
+		if(a[i]==1)
 		{
 			l_flag--;
 			*TIM16ARR = 0x2327;
 			*TIM16CCR = 0x8CA;
 			*TIM16CR1 |= 0x01;
 		}
-		else if(x[i]==0)
+		else if(a[i]==0)
 		{
 			l_flag--;
 			*TIM16ARR = 0x1193;
@@ -170,18 +170,18 @@ int send_byte(int x[16])
 	return 0;
 }
 
-int send_inverse(int x[16])
+int send_inverse()
 {
 	for(int i=0;i<16;i++)
 	{
-		if(x[i]==0)
+		if(a[i]==0)
 		{
 			l_flag--;
 			*TIM16ARR = 0x2327;
 			*TIM16CCR = 0x8CA;
 			*TIM16CR1 |= 0x01;
 		}
-		else if(x[i]==1)
+		else if(a[i]==1)
 		{
 			l_flag--;
 			*TIM16ARR = 0x1193;
